@@ -1,0 +1,34 @@
+image: node:18
+
+pipelines:
+  default:
+    - step:
+        name: Build
+        script:
+          - npm install -g pnpm
+          - pnpm install
+          - pnpm build
+        artifacts:
+          - dist/**
+
+    - step:
+        name: Test
+        script:
+          - npm install -g pnpm
+          - pnpm install
+          - pnpm test
+
+    - step:
+        name: Deploy
+        trigger: manual
+        deployment: production
+        script:
+          - echo "Deploying to production"
+
+  branches:
+    main:
+      - step:
+          name: Deploy to Main
+          deployment: staging
+          script:
+            - echo "Deploying main branch"

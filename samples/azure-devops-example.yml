@@ -1,0 +1,26 @@
+trigger:
+  - main
+
+stages:
+  - stage: Build
+    jobs:
+      - job: CompileJob
+        steps:
+          - script: echo Building application
+            displayName: "Build Step"
+
+  - stage: Test
+    dependsOn: Build
+    jobs:
+      - job: TestJob
+        steps:
+          - script: echo Running tests
+            displayName: "Test Step"
+
+  - stage: Deploy
+    dependsOn: Test
+    jobs:
+      - job: DeployJob
+        steps:
+          - script: echo Deploying to production
+            displayName: "Deploy Step"

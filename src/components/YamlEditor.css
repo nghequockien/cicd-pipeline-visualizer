@@ -1,0 +1,42 @@
+.yaml-editor {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.yaml-editor h3 {
+  padding: 15px;
+  border-bottom: 1px solid var(--border-color);
+  margin: 0;
+  font-size: 16px;
+}
+
+.editor-textarea {
+  flex: 1;
+  padding: 15px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 0;
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  resize: none;
+  overflow: auto;
+  outline: none;
+}
+
+.editor-textarea::placeholder {
+  color: #6b7280;
+}
+
+.editor-textarea:focus {
+  background-color: rgba(59, 130, 246, 0.05);
+  border-left: 2px solid var(--primary-color);
+  padding-left: calc(15px - 2px);
+}

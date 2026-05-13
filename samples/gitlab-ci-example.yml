@@ -1,0 +1,36 @@
+stages:
+  - build
+  - test
+  - deploy
+
+variables:
+  DOCKER_DRIVER: overlay2
+
+build_job:
+  stage: build
+  image: node:18
+  script:
+    - pnpm install
+    - pnpm build
+  artifacts:
+    paths:
+      - dist/
+
+test_job:
+  stage: test
+  image: node:18
+  dependencies:
+    - build_job
+  script:
+    - pnpm install
+    - pnpm test
+
+deploy_job:
+  stage: deploy
+  image: node:18
+  dependencies:
+    - test_job
+  script:
+    - echo "Deploying application"
+  only:
+    - main
