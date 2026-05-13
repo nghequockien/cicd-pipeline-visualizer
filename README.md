@@ -1,4 +1,13 @@
 # 🔄 Pipeline Visualizer Web
+CI/CD Pipeline Visualizer is a lightweight developer tool for turning CI/CD definitions into an easy-to-read visual flow. Instead of scanning long YAML files or clicking through multiple UI pages, teams can quickly understand stages, job dependencies, and execution order as a single diagram.
+The tool is useful when you’re:
+
+Reviewing a pipeline during PRs
+Debugging “why did this job run first?” dependency issues
+Explaining release flows to new team members
+Documenting build/test/deploy steps for audits or handovers
+
+Typical workflows include loading a pipeline definition (e.g., GitHub Actions / Azure DevOps / GitLab-style YAML), rendering the graph, and iterating until the structure matches the intended release process. A good visualizer also helps spot anti-patterns—like hidden coupling, missing gates, or overly serialized jobs—before they slow down delivery.
 
 A modern web application built with **React + Vite + PNPM** for visualizing CI/CD pipeline YAML files as interactive diagrams.
 
